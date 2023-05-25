@@ -1,2 +1,1 @@
-# MOST_WANTED
-advanced JS
+# MostWanted_FSF_JS_Starter
