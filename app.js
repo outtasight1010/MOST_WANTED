@@ -65,7 +65,7 @@ function searchByName(people) {
 }
 
 function searchByTraits(people){ 
-    const searchByTraitChoice = prompt('Please enter what type of trait you are searching for.',
+    const searchByTraitChoice = validatedPrompt('Please enter what type of trait you are searching for.',
     [gender, dob, height, weight, eyecolor, occupation]);
     const traitSearchResults = people.filter(person => (person.gender === searchByTraitChoice && person.dob === searchByTraitChoice && person.height === searchByTraitChoice && person.weight === searchByTraitChoice 
         && person.eyecolor === searchByTraitChoice && person.occupation === searchByTraitChoice));
