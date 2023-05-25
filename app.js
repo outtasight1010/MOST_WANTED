@@ -70,7 +70,7 @@ function searchByTraits(people){
     const traitSearchResults = people.filter(person => (person.gender === searchByTraitChoice && person.dob === searchByTraitChoice && person.height === searchByTraitChoice && person.weight === searchByTraitChoice 
         && person.eyecolor === searchByTraitChoice && person.occupation === searchByTraitChoice));
     return traitSearchResults;
-    
+
 }
 
 function mainMenu(person, people) {
@@ -83,7 +83,7 @@ function mainMenu(person, people) {
     switch (mainMenuUserActionChoice) {
         case "info":
             //! TODO
-            // displayPersonInfo(person);
+            displayPersonInfo(person);
             break;
         case "family":
             //! TODO
