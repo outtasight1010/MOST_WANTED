@@ -72,19 +72,23 @@ function searchByTraits(people){
     return traitSearchResults;
 
 }
-
-function displayPersonInfo(person){
+ 
+function displayPersonInfo(people) {
     const searchFirstName = prompt ('Please enter first name of the person you are searching for.');
     const searchLastName = prompt ('Please enter last name of the person you are searching for.');
-    const foundFullName = people.filter(person =>(person.firstName.toLowerCase()===searchFirstName.toLowerCase() && person.lastName.toLowerCase()===searchLastName.toLowerCase()));{
-        if (person.firstName.toLowercase() && person.lastName.toLowerCase().includes (foundFullName)) {
+    const foundFullName = people.filter(function(person) {
+        if (person[searchFirstName].includes(searchLastName)){
             return true;
         }
+
+    });
     return foundFullName;    
-    };
 
 }
-console.log(displayPersonInfo(person));
+console.log(displayPersonInfo(people));
+
+
+
 
 
     
