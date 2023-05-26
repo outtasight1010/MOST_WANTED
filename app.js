@@ -72,29 +72,109 @@ function searchByTraits(people){
     return traitSearchResults;
 
 }
+// searching for height trait
+function heightPersonSearch(people){
+    let heightSearch = prompt('Would you like to search by height? Please enter yes or no.');
+    switch(heightSearch){
+        case "yes":
+            let findingHeight= lookingUpHeight(people);
+            return findingHeight;
+        case "no":
+            return people;
+        default:
+            heightPersonSearch(people);
+            break;
+
+
+    }
+}
+//searching for weight trait
+function weightPersonSearch(people){
+    let weightSearch = prompt('Would you like to search by weight? Please enter yes or no.');
+    switch(weightSearch){
+        case "yes":
+            let findingWeight= lookingUpWeight(people);
+            return findingWeight;
+        case "no":
+            return people;
+        default:
+            WeightPersonSearch(people);
+            break;
+
+
+    }
+}
+//searching for occupation trait
+function occupationPersonSearch(people){
+    let occupationSearch = prompt('Would you like to search by occupation? Please enter yes or no.');
+    switch(occupationSearch){
+        case "yes":
+            let findingOccupation= lookingUpOccupation(people);
+            return findingOccupation;
+        case "no":
+            return people;
+        default:
+            OccupationPersonSearch(people);
+            break;
+
+
+    }
+}
+// searching for eyeColor trait
+function eyeColorPersonSearch(people){
+    let eyeColorSearch = prompt('Would you like to search by eye color? Please enter yes or no.');
+    switch(eyeColorSearch){
+        case "yes":
+            let findingEyeColor= lookingUpEyeColor(people);
+            return findingEyeColor;
+        case "no":
+            return people;
+        default:
+            eyeColorPersonSearch(people);
+            break;
+    }
+}
+// searching for age trait
+function agePersonSearch(people){
+    let ageSearch = prompt('Would you like to search by age? Please enter yes or no.');
+    switch(ageSearch){
+        case "yes":
+            covertDobToAge(people);
+            let findingAge = lookingUpAge(people);
+            return findingAge;
+        case "no":
+            return people;
+        default:
+            agePersonSearch(people);
+            break;
+
+    }
+}
+// converting dob to age for easy search
+function covertDobToAge(people) {
+    let personAge = people.map(function(el){
+        let birthDate = new Date(el.dob);
+        let todayDate = new Date();
+        let resultDate = todayDate - birthDate;
+        return el.age = age;
+
+    })
+}
  
 function displayPersonInfo(people) {
     const searchFirstName = prompt ('Please enter first name of the person you are searching for.');
     const searchLastName = prompt ('Please enter last name of the person you are searching for.');
-    const foundFullName = people.filter(function(person) {
+    const foundPersonSearched = people.filter(function(person) {
         if (person[searchFirstName].includes(searchLastName)){
             return true;
         }
 
     });
-    return foundFullName;    
+    return foundPersonSearched;    
 
 }
-console.log(displayPersonInfo(people));
+console.log(displayPersonInfo(person));
 
-
-
-
-
-    
-
-
-  
 
 
 function mainMenu(person, people) {
@@ -106,8 +186,8 @@ function mainMenu(person, people) {
 
     switch (mainMenuUserActionChoice) {
         case "info":
-            //! TODO listed displayPersonInfo function above.
             displayPersonInfo(person);
+            //! TODO  displayPersonInfo() function is listed above.
             break;
         case "family":
             //! TODO
