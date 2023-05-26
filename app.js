@@ -65,13 +65,33 @@ function searchByName(people) {
 }
 
 function searchByTraits(people){ 
-    const searchByTraitChoice = validatedPrompt('Please enter what type of trait you are searching for.',
+    const searchByTraitChoice = prompt('Please enter what type of trait you are searching for.',
     [gender, dob, height, weight, eyecolor, occupation]);
     const traitSearchResults = people.filter(person => (person.gender === searchByTraitChoice && person.dob === searchByTraitChoice && person.height === searchByTraitChoice && person.weight === searchByTraitChoice 
         && person.eyecolor === searchByTraitChoice && person.occupation === searchByTraitChoice));
     return traitSearchResults;
 
 }
+
+function displayPersonInfo(person){
+    const searchFirstName = prompt ('Please enter first name of the person you are searching for.');
+    const searchLastName = prompt ('Please enter last name of the person you are searching for.');
+    const foundFullName = people.filter(person =>(person.firstName.toLowerCase()===searchFirstName.toLowerCase() && person.lastName.toLowerCase()===searchLastName.toLowerCase()));{
+        if (person.firstName.toLowercase() && person.lastName.toLowerCase().includes (foundFullName)) {
+            return true;
+        }
+    return foundFullName;    
+    };
+
+}
+console.log(displayPersonInfo(person));
+
+
+    
+
+
+  
+
 
 function mainMenu(person, people) {
 
@@ -82,7 +102,7 @@ function mainMenu(person, people) {
 
     switch (mainMenuUserActionChoice) {
         case "info":
-            //! TODO
+            //! TODO listed displayPersonInfo function above.
             displayPersonInfo(person);
             break;
         case "family":
