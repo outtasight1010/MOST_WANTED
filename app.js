@@ -160,6 +160,49 @@ function covertDobToAge(people) {
 
     })
 }
+
+function lookingUpHeight(people) {
+    let heightInput = prompt('What is the height of the person? Please enter.');
+    let newFilterHeight = people.filter(function(el) {
+        if (el.height === people.height) {
+            return true;
+        }
+    });
+    return newFilterHeight();
+}
+
+function lookingUpWeight(people) {
+    let weightInput = prompt('What is the weight of the person? Please enter.');
+    let newFilterWeight = people.filter(function(el) {
+        if (el.weight === people.weight) {
+            return true;
+        }
+       });
+    return newFilterWeight();
+}
+
+function lookingUpOccupation(people) {
+    let occupationtInput = prompt('What is the occupation of the person? Please enter.');
+    let newFilterOccupation = people.filter(function(el) {
+        if (el.occupation ===people.occupation) {
+            return true;
+        }
+     });
+    return newFilterOccupation();
+}
+
+function lookingUpEyeColor(people) {
+    let eyeColorInput = prompt('What is the eye color of the person? Please enter.');
+    let newFilterEyeColor = people.filter(function(el) {
+        if (el.eyeColor ===people.eyeColor) {
+            return true;
+        }
+    });
+    return newFiltereyeColor();
+}
+
+
+
  
 function displayPersonInfo(people) {
     const searchFirstName = prompt ('Please enter first name of the person you are searching for.');
