@@ -184,7 +184,7 @@ function lookingUpWeight(people) {
 function lookingUpOccupation(people) {
     let occupationtInput = prompt('What is the occupation of the person? Please enter.');
     let newFilterOccupation = people.filter(function(el) {
-        if (el.occupation ===people.occupation) {
+        if (el.occupation === people.occupation) {
             return true;
         }
      });
@@ -194,11 +194,22 @@ function lookingUpOccupation(people) {
 function lookingUpEyeColor(people) {
     let eyeColorInput = prompt('What is the eye color of the person? Please enter.');
     let newFilterEyeColor = people.filter(function(el) {
-        if (el.eyeColor ===people.eyeColor) {
+        if (el.eyeColor === people.eyeColor) {
             return true;
         }
     });
-    return newFiltereyeColor();
+    return newFilterEyeColor();
+}
+
+function lookingUpAge(){
+    let ageInput = parseInt(prompt('What is the age of the person?'));
+    let newFilterAge = people.filter(function(el){
+        if(el.age === people.age){
+            return true;
+
+        }
+    });
+    return newFilterAge();
 }
 
 
