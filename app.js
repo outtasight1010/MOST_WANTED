@@ -215,19 +215,15 @@ function lookingUpAge(){
 
 
  
-function displayPersonInfo(people) {
+function displayPersonInfo(people){
     const searchFirstName = prompt ('Please enter first name of the person you are searching for.');
     const searchLastName = prompt ('Please enter last name of the person you are searching for.');
-    const foundPersonSearched = people.filter(function(person) {
-        if (person[searchFirstName].includes(searchLastName)){
-            return true;
+    for (i=0; i< data.length;i++){
+        if (searchFirstName == data[i].firstName && searchLastName == data[i].lastName){
+            console.log(data[i].id)
         }
-
-    });
-    return foundPersonSearched;    
-
+    }
 }
-console.log(displayPersonInfo(person));
 
 
 
