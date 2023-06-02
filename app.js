@@ -41,6 +41,7 @@ function searchPeopleDataSet(people) {
             break;
         case 'traits':
             //! TODO
+            //search by traits down below
             results = searchByTraits(people);
             break;
         default:
@@ -225,6 +226,23 @@ function displayPersonInfo(people){
     }
 }
 
+function displayPeople(people){
+
+    let personDescendants = findPersonDescendants(person, people);
+            if (personDescendants.length !== 0 ? displayPeople(personDescendants) : alert(`${person.firstName} has no descendants`));
+            displayPeople('Descendants', personDescendants);
+   
+
+    
+  }
+
+
+
+
+
+
+
+
 
 
 function mainMenu(person, people) {
@@ -245,7 +263,8 @@ function mainMenu(person, people) {
             displayPeople('Family', personFamily);
             break;
         case "descendants":
-            //! TODO
+            //! TODO 
+            //findPersonDescendants() is listed above
             let personDescendants = findPersonDescendants(person, people);
             displayPeople('Descendants', personDescendants);
             break;
