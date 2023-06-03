@@ -326,6 +326,14 @@ function displayPeople(people){
     
   }
 
+// function to prompt & validate user input
+function promptFor(question, valid){
+    do{
+      let response = prompt(question).trim();
+    } while(!response || !valid(response));
+    return response;
+  }
+
 
 
 
@@ -358,6 +366,7 @@ function mainMenu(person, people) {
             //! TODO 
             //findPersonDescendants() is listed above
             let personDescendants = findPersonDescendants(person, people);
+            
             displayPeople('Descendants', personDescendants);
             break;
         case "quit":
