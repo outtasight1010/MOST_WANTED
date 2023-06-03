@@ -315,16 +315,29 @@ function findSiblings(person, people) {
 }
 
 
+//finding descendants(children)
+function findPersonDescendants(person, people, children=[], idx = 0) {
+  
+    let descendantsFound = people.filter((item) => {
+      if(item.personDescendants.includes(person.id)) {
+        children.push(item);
+        return true;
+      }
+      if (personDescendants.length !== 0 ? displayPeople(personDescendants) : alert(`${person.firstName} has no descendants`)) {
 
-function displayPeople(people){
-
-    let personDescendants = findPersonDescendants(person, people);
-            if (personDescendants.length !== 0 ? displayPeople(personDescendants) : alert(`${person.firstName} has no descendants`));
-            displayPeople('Descendants', personDescendants);
+      }
+    });
+  
+    for (let i = idx; i < children.length; i++) { 
+      return findPersonDescendants(children[i], people, children, i + 1)
+    }
+  
+    return children;
+  }
    
 
     
-  }
+  
 
 // function to prompt & validate user input
 function promptFor(question, valid){
@@ -366,6 +379,7 @@ function mainMenu(person, people) {
             //! TODO 
             //findPersonDescendants() is listed above
             let personDescendants = findPersonDescendants(person, people);
+            
             
             displayPeople('Descendants', personDescendants);
             break;
