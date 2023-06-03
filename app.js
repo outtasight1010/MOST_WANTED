@@ -226,6 +226,96 @@ function displayPersonInfo(people){
     }
 }
 
+function findPersonFamily(person,people){
+    let parents = findParents(person,people);
+    let spouse = findSpouse(person, people);
+    let siblings = findSiblings(person,people);
+        alert(personFamily);
+        app(people);
+}
+
+//find Parents
+function findParents(person,people){
+    let parents = [];
+    let newParentsList = "";
+    if(person.parents.lemgth===0){
+        return "I'm sorry, parents not found.";
+    }
+    else{
+        parents = people.filter(function(element){
+            if(element.id===person.parents[0] ||element.id===person.parents[1]){
+                return true;
+
+            }
+
+        });
+    }
+    for (let i = 0; i < parents.length; i++) {
+        newParentsList += parents[i].firstName + ". " + parents[i].lastName + ". ";
+    }
+
+    return newParentsList;
+}
+
+// find spouse
+function findSpouse(person, people) {
+
+    let spouse;
+    let spouseList = [];
+    var spouseListFound = "";
+
+    if (person.currentSpouse === null) {
+        return "I'm sorry, spouse is not found.";
+    }
+    else {
+        spouseList = people.filter(function (element) {
+            if (element.id === person.currentSpouse) {
+                return true;
+            }
+        });
+    }
+
+    spouse = spouseList.pop();
+
+    spouseListFound = spouse.firstName + " " + spouse.lastName;
+
+    return spouseListFound;
+}
+
+// find siblings
+function findSiblings(person, people) {
+
+    let siblings = [];
+    let siblingsNewList = "";
+
+    if (person.siblings.length === 0) {
+        return "I'm sorry, siblings are not found.";
+    }
+    else {
+        siblings = people.filter(function (element) {
+            if (element.siblings.length === 0) {
+                return false;
+            }
+            
+            
+            else if (element.siblings[0] === person.siblings[0] || element.siblings[0] === person.siblings[1]) {
+                return true;
+            }
+            else if (element.parents[1] === person.siblings[0] || element.siblings[1] === person.siblings[1]) {
+                return true;
+            }
+        });
+    }
+
+    for (let i = 0; i < siblings.length; i++) {
+        siblingsNewList += siblings[i].firstName + " " + siblings[i].lastName + ". ";
+    }
+
+    return siblingsNewList;
+}
+
+
+
 function displayPeople(people){
 
     let personDescendants = findPersonDescendants(person, people);
@@ -260,6 +350,8 @@ function mainMenu(person, people) {
         case "family":
             //! TODO
             let personFamily = findPersonFamily(person, people);
+            // functions listed above
+
             displayPeople('Family', personFamily);
             break;
         case "descendants":
